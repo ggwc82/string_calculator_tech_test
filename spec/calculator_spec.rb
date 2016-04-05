@@ -28,5 +28,9 @@ describe Calculator do
     it 'raises an error if the input is NOT ok ("1,\n")' do
       expect{calculator.add("1,\n")}.to raise_error("incorrect input format")
     end
+
+    it 'can support a different defined delimiter' do
+      expect(calculator.add("//;\n1;2")).to eq (3)
+    end
   end
 end
