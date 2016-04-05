@@ -1,5 +1,5 @@
 class Calculator
   def add(input)
-    0
+    input.to_i
   end
 end
