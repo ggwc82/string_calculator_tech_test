@@ -24,5 +24,9 @@ describe Calculator do
     it 'can handle new lines between numbers (instead of commas)' do
       expect(calculator.add("1\n2,3")).to eq(6)
     end
+
+    it 'raises an error if the input is NOT ok ("1,\n")' do
+      expect{calculator.add("1,\n")}.to raise_error("incorrect input format")
+    end
   end
 end
