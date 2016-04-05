@@ -2,7 +2,6 @@ class Calculator
   def add(string)
     string = substitute_deliminator(string)
     cleaned_input = parse_input(string)
-    raise ArgumentError, 'incorrect input format' if incorrect_input?(cleaned_input)
     sum(cleaned_input)
   end
 
@@ -12,16 +11,12 @@ class Calculator
     string.gsub("\n", ",")
   end
 
-  def incorrect_input?(string)
-    string.include?(",,")
-  end
-
   def sum(array)
     array.split(",").map(&:to_i).inject(0, :+)
   end
 
   def substitute_deliminator(string)
-    deliminator = string[2] if string.include?("//")
-    string.gsub("//;\n", "").gsub(/#{deliminator}/, ",")
+    #deliminator = string[2] if string.include?("//")
+    string.gsub("//;\n", "").gsub(";", ",")
   end
 end
