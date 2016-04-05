@@ -20,5 +20,9 @@ describe Calculator do
     it 'will handle an unknown amount of numbers' do
       expect(calculator.add("1,2,3,4,5,6,7,8,9,10")).to eq(55)
     end
+
+    it 'can handle new lines between numbers (instead of commas)' do
+      expect(calculator.add("1\n2,3")).to eq(6)
+    end
   end
 end
