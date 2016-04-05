@@ -21,6 +21,7 @@ class Calculator
   end
 
   def substitute_deliminator(string)
-    string.gsub("//;\n", "").gsub(";", ",")
+    deliminator = string[2] if string.include?("//")
+    string.gsub("//;\n", "").gsub(/#{deliminator}/, ",")
   end
 end

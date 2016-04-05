@@ -32,5 +32,9 @@ describe Calculator do
     it 'can support a different defined delimiter' do
       expect(calculator.add("//;\n1;2")).to eq (3)
     end
+
+    it 'can support a different defined delimiter' do
+      expect(calculator.add("//!\n1!2")).to eq (3)
+    end
   end
 end
